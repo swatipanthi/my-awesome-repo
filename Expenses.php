@@ -47,7 +47,7 @@ include("./include/connection.php");
                 <form id ="addNewExpForm" method = "post">
                 <table class="table-expenses">
                     <tr>
-                        <td>Expenses:</td>
+                        <td>Expense:</td>
                         <td><input type="text" id="catname" name ="expenses" maxlength="30" class="form-control" title="Max length 30 characters" required></td>
                     </tr>
                     <tr>
