@@ -76,7 +76,7 @@ if(isset($_POST['showDateData'])){
 
                 <table class="cbtable2">
                     <tr class ="blk-tr">
-                        <th class = "cbtable-th">Income</th>
+                        <th class = "cbtable-th">Incomes</th>
                         <th class = "cbtable-th"></th>
                         <th class = "cbtable-th"></th>
                         <th class = "cbtable-th">Expenses</th>
