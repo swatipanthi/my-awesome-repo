@@ -1,0 +1,95 @@
+/* UserProfile.php */
+#userProfileTable {
+    margin : 0 auto;
+}
+#userProfileTable td{
+    padding-bottom : 1px;
+}
+/* ExpenseCategory.php IncomeCategory.php */
+table.catTable {
+    margin : 0 auto;
+}
+.catTable td {
+    padding-bottom: 1px;
+}
+table.gridCatTable {
+    border : 1px solid white;
+    border-collapse: collapse;
+    text-align : center;
+    margin : 0 auto;
+    padding: 5px;
+}
+.gridCatTblTr {
+    border : 1px solid white;
+    border-collapse: collapse;
+    text-align : center;
+    margin : 0 auto;
+    padding: 5px;
+}
+.gridCatTblTh {
+    border : 1px solid white;
+    border-collapse: collapse;
+    text-align : center;
+    margin : 0 auto;
+    padding: 5px;
+}
+.gridCatTblTd {
+    border : 1px solid white;
+    border-collapse: collapse;
+    text-align : center;
+    margin : 0 auto;
+    padding: 5px;
+}
+#hr1 {
+    border-color : blue; 
+    border-width : 0.2em;
+}
+/* Expenses.php and Income.php */
+.table-expenses {
+    margin :0 auto;
+}
+.table-expenses td{
+    padding-bottom: 1px;
+}
+.textareaRemark {
+    width : 1005;
+    height : 40px !important;
+}
+/* CashBook.php and BankBook.php and DayBook.php and BalanceSheet*/
+.cbtable {
+    width: 100%;
+    margin :0 auto;
+    text-align : left;
+    
+}
+.cbtable2 {
+    width :100%;
+    margin :0 auto;
+    text-align : left;
+    border: 1px solid #1B2455;
+    
+}
+.cbtable-th {
+    background-color : #000;
+    border-left: 1px solid #1B2455;
+    padding: 3px;
+}
+.cbtable-td {
+    border-left: none;
+ }
+.cbtable-tr {
+    border: none;
+}
+#tbl-td {
+    padding-left: 3px;
+}
+.blk-tr {
+    border-bottom: 1px solid #1B2455;
+}
+/* Date picker width */
+.datebox {
+    width : 150px;
+}
+
+
+

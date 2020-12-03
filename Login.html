@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<title>Personal Inventory System</title>
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="author" content="Erwin Aligam - styleshout.com" />
+<meta name="description" content="Site Description Here" />
+<meta name="keywords" content="keywords, here" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="images/Azulmedia.css" />
+
+<style>
+    fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
+        color : #fff;
+    }
+</style>
+
+</head>
+
+<body>
+<div class="container">
+<!-- wrap starts here -->
+<div id="wrap">
+<!-- header starts here -->	
+
+    <div id="header">	
+            
+        <h1 id="logo">Personal<span class="gray"></span></h1>	
+        <h2 id="slogan">Inventory System</h2>		
+        
+        <!-- Menu Tabs -->
+        <div id="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="UserRegisteration.html">Register User</a></li>
+                <li id="current"><a href="Login.html">Login</a></li>
+                </ul>		
+        </div>		
+
+    </div>
+<!-- header ends here -->	
+				
+	<!-- content-wrap starts here -->
+	<div id="content-wrap">	 
+	
+		<div id="main">
+		
+			<a name="TemplateInfo"></a>			
+			<div class="box">
+				
+				<form id="loginform" method="post">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">Login</legend>
+                        <div class="form-group">
+                            <label for="text">User Name:</label>
+                            <input type="text" class="form-control" id="uname" name="uname" maxlength="12" title="Max length 12 characters" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="pwd" maxlength="6" title="Max length 6 characters" required>
+                        </div>
+                        <input type="submit" id ="signin" name = "login_btn" value="Login" class="btn btn-success">
+                        <button type="reset" id = "reset" value="Reset" class="btn btn-default">Reset</button>
+                     </fieldset>
+                    
+                </form>
+				
+			</div>
+										
+		</div>
+
+	<br />
+    <div class="clear"></div>
+	<!-- content-wrap ends here -->		
+	</div>	
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->	
+<div id="footer-wrap">
+	
+	<div class="footer-left">
+		<p class="align-left">			
+		&copy; 2016 Kosamkheda.com |
+		
+       	</p>
+	</div>
+	
+	<div class="footer-right">
+		<p class="align-right">
+        Developed By Neelesh Kumar Prajapati
+		</p>
+	</div>
+	
+</div>
+<!-- footer ends here -->	
+</div>
+<script src="assets/validations.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#loginform').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: './model/loginModel.php',
+                data: $(this).serialize(),
+                success: function(response)
+                {
+                    var jsonData = JSON.parse(response);
+      
+                    // user is logged in successfully in the back-end
+                    // let's redirect
+                    //alert(jsonData.errMsg);
+                    if (jsonData.success == "1")
+                    {
+                        location.href = 'index.php';
+                    }
+                    else
+                    {
+                        alert(jsonData.errMsg);
+                        $('#uname').val('');
+                        $('#pwd').val('');
+                        $('#uname').focus();
+                    }
+               }
+           });
+         });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<title>Personal Inventory System</title>
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="author" content="Erwin Aligam - styleshout.com" />
+<meta name="description" content="Site Description Here" />
+<meta name="keywords" content="keywords, here" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="images/Azulmedia.css" />
+
+<style>
+    fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
+        color : #fff;
+    }
+
+    #uRegTable {
+        width: 100%;
+    }
+    #uRegTable td{
+        padding: 1px;
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div class="container">
+<!-- wrap starts here -->
+<div id="wrap">
+<!-- header starts here -->	
+
+    <div id="header">	
+            
+        <h1 id="logo">Personal<span class="gray"></span></h1>	
+        <h2 id="slogan">Inventory System</h2>		
+        
+        <!-- Menu Tabs -->
+        <div id="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li id="current"><a href="UserRegisteration.html">Register User</a></li>
+                <li><a href="Login.html">Login</a></li>
+                </ul>		
+        </div>		
+
+    </div>
+<!-- header ends here -->	
+				
+	<!-- content-wrap starts here -->
+	<div id="content-wrap">	 
+	
+		<div id="main">
+		
+			<a name="TemplateInfo"></a>			
+			<div class="box">
+				
+				<form id="userRegForm" method="post">
+                    
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border">User Registration</legend>
+                
+                        <table id="uRegTable">
+                            <tr>
+                                <td>Name:</td>
+                                <td><input type="text" id="name" name="name" class="form-control" maxlength="45" required></td>
+                            </tr>
+                             <tr>
+                                 <td>User Name:</td>
+                                 <td><input type="text" id="uname" name="uname" class="form-control" maxlength="12" title="Max length 12 characters" required></td>
+                             </tr>
+                             <tr>
+                                <td>Password:</td>
+                                <td><input type="password" id="pwd" name="pwd" class="form-control" maxlength="6" title="Max length 6 characters" required></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password:</td>
+                                <td><input type="password" id="confpwd" name="confpwd" class="form-control" maxlength="6" title="Max length 6 characters" required></td>
+                            </tr>
+                            <tr>
+                                <td>Phone No.:</td>
+                                <td><input type="text" id="phone" name="phone" pattern="[6-9]{1}[0-9]{9}" title="Phone number with 6-9 and remaing 9 digit with 0-9" class="form-control" minlength="10" maxlength="10" required></td>
+                            </tr>
+                            <tr>
+                                <td>Email Id:</td>
+                                <td><input type="email" id="email" name="email" class="form-control" required></td>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td><input type="text" id="address" name="address" class="form-control" maxlength="100" title="Max length 100 characters"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="Register" name="reg_btn" class="btn btn-primary enableOnInput" disabled='disabled'> <input type="reset" id="clr" value="Clear" style ="float:right;" class="btn btn-primary"></td>
+                            </tr>
+                         </table>        
+                         <span id='message'></span>
+                    </fieldset>
+                   </form>
+				
+			</div>
+			
+			
+							
+		</div>
+
+	<br />
+    <div class="clear"></div>
+	<!-- content-wrap ends here -->		
+	</div>	
+
+<!-- wrap ends here -->
+</div>
+
+<!-- footer starts here -->	
+<div id="footer-wrap">
+	
+	<div class="footer-left">
+		<p class="align-left">			
+		&copy; 2016 Kosamkheda.com |
+		
+       	</p>
+	</div>
+	
+	<div class="footer-right">
+		<p class="align-right">
+        Developed By Neelesh Kumar Prajapati
+		</p>
+	</div>
+	
+</div>
+<!-- footer ends here -->	
+</div>
+<script src="assets/validations.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#userRegForm').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: './model/userRegisterationModel.php',
+                data: $(this).serialize(),
+                success: function(response)
+                {
+                    var jsonData = JSON.parse(response);
+                    if (jsonData.success == "1")
+                    {
+                        location.href = 'Login.html';
+                    }
+                    else
+                    {
+                        //alert(jsonData.errMsg);
+                        $('#uname').val('');
+                        $('#pwd').val('');
+                        $('#name').val('');
+                        $('#confpwd').val('');
+                        $('#email').val('');
+                        $('#phone').val('');
+                        $('#address').val('');
+                        $('#name').focus();
+                    }
+               }
+           });
+         });
+    });
+    </script>
+
+</body>
+</html>
